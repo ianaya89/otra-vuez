@@ -1,5 +1,5 @@
 <template>
-  <h1>Composition API</h1>
+  <h1>Options API</h1>
   <section>
     <h2 v-if="isLoadingUsers">Loading Users...</h2>
     <table v-else>

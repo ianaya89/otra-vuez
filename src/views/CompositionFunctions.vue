@@ -1,4 +1,5 @@
 <template>
+  <h1>Compositions Functions</h1>
   <section>
     <h1 v-if="users.isLoading.value">Loading Users...</h1>
     <table v-else>
