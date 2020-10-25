@@ -36,6 +36,15 @@ const routes = [
     name: "composition",
     component: () =>
       import(/* webpackChunkName: "samples" */ "../views/CompositionAPI.vue")
+  },
+
+  {
+    path: "/functions",
+    name: "functions",
+    component: () =>
+      import(
+        /* webpackChunkName: "samples" */ "../views/CompositionFunctions.vue"
+      )
   }
 ];
 

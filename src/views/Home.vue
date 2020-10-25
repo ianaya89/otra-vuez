@@ -1,6 +1,10 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <h1>Rompiendo Paradigmas</h1>
+    <h2>Otra Vuez!</h2>
+    <h3>🔨📜3️⃣</h3>
+    <a href="">slides</a>
   </div>
 </template>
 

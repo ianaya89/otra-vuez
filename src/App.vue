@@ -4,7 +4,8 @@
     <router-link to="/teleport">Teleport</router-link> |
     <router-link to="/v-model">Multi v-model</router-link> |
     <router-link to="/options">Options API</router-link> |
-    <router-link to="/composition">Composition API</router-link>
+    <router-link to="/composition">Composition API</router-link> |
+    <router-link to="/functions">Composition Functions</router-link>
   </div>
   <router-view />
 </template>

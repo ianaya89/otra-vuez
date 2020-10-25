@@ -1,6 +1,7 @@
 <template>
+  <h1>Composition API</h1>
   <section>
-    <h1 v-if="isLoadingUsers">Loading Users...</h1>
+    <h2 v-if="isLoadingUsers">Loading Users...</h2>
     <table v-else>
       <tr v-for="u in users" :key="u.id">
         <td>{{ u.id }}</td>
@@ -10,7 +11,7 @@
       </tr>
     </table>
 
-    <h1 v-if="isLoadingThings">Loading Things...</h1>
+    <h2 v-if="isLoadingThings">Loading Things...</h2>
     <table v-else>
       <tr v-for="t in things" :key="t.id">
         <td>{{ t.id }}</td>
@@ -55,10 +56,15 @@ export default {
       this.isLoadingUsers = true;
 
       setTimeout(async () => {
-        const res = await fetch("https://reqres.in/api/users?page=2");
-        const { data } = await res.json();
-        this.users = data;
-        this.isLoadingUsers = false;
+        try {
+          const res = await fetch("https://reqres.in/api/users?page=2");
+          const { data } = await res.json();
+          this.users = data;
+        } catch (err) {
+          this.usersError = err;
+        } finally {
+          this.isLoadingUsers = false;
+        }
       }, 2000);
     },
 
@@ -66,10 +72,15 @@ export default {
       this.isLoadingThings = true;
 
       setTimeout(async () => {
-        const res = await fetch("https://reqres.in/api/unknown");
-        const { data } = await res.json();
-        this.things = data;
-        this.isLoadingThings = false;
+        try {
+          const res = await fetch("https://reqres.in/api/unknown");
+          const { data } = await res.json();
+          this.things = data;
+        } catch (err) {
+          this.thingsError = err;
+        } finally {
+          this.isLoadingThings = false;
+        }
       }, 3000);
     }
   }
@@ -80,6 +91,7 @@ export default {
 section {
   display: flex;
   justify-content: space-between;
+  padding: 2rem;
 }
 
 table {
